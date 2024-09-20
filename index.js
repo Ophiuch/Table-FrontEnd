@@ -3,7 +3,6 @@ let sortColumn = "Name";
 let sortDirection = "asc";
 let searchItem = "";
 
-
 function fetchAthletes(page = 1) {
   const searchQuery = document.getElementById('searchInput').value;
   searchItem = searchQuery;
@@ -51,17 +50,5 @@ function sortTable(column) {
 function searchTable() {
   fetchAthletes(1); // Reset to page 1 on new search
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 fetchAthletes();
