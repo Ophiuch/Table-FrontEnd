@@ -46,7 +46,7 @@ function updatePagination(totalRecords, currentPage, pageSize) {
 function sortTable(column) {
   sortDirection = (sortColumn === column && sortDirection === 'asc') ? 'desc' : 'asc';
   sortColumn = column;
-  fetchAthletes(currentPage);
+  fetchAthletes(pageNumber);
 }
 
 function searchTable() {

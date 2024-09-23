@@ -2,18 +2,23 @@
    .container{
     position: relative;
     margin-top: 90px;
+    width: 60%;
    }
    
    
    
    #searchInput{
        margin-left: 2px;
-       background-color: #4CAF50;
-       color: white;
+       background-color: #e3ffe4;
+       padding-left: 15px;
+       color: rgb(68, 60, 60);
+       margin-bottom: 5px;
+       outline: none; /* Removes the default focus outline */
+       border-radius: 0; /* Keeps the border radius consistent */
     }
 
     #searchInput::placeholder{
-        color: white;
+        color: rgb(87, 78, 78);
     }
 
     img{
