@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="index.css">
     <title>FIFA Table</title>
 </head>
+
 <body>
-    <div id="container" class="container"></div>
-    <table id="athleteTable">
-        <thead>
-            <tr>
-                <th onclick="sortTable('name')">Athlete</th>
-                <th onclick="sortTable('age')">Age</th>
-                <th onclick="sortTable('skill')">Country</th>
-                <th onclick="sortTable('position')">Year</th>
-                <th onclick="sortTable('score')">Sport</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-    <input type="text" id="searchInput" placeholder="-" oninput="searchTable()">
-    <div id="pagination"></div>
+    <img src="https://media2.giphy.com/media/WvuTFk2IN7jxoLVDkP/200w.gif?cid=8d8c0358o4wr6i53bbjlvam1gtehi6mmeddptsgp3bz0rp80&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="Sorry">
+   
+    <div id="container" class="container">
+        <input type="text" id="searchInput" placeholder="Find your hero" oninput="searchTable()">
+        
+        <table id="athleteTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable('name')">Athlete</th>
+                    <th onclick="sortTable('age')">Age</th>
+                    <th onclick="sortTable('skill')">Country</th>
+                    <th onclick="sortTable('position')">Year</th>
+                    <th onclick="sortTable('score')">Sport</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div id="pagination"></div>
+    </div>
+
     <script src="index.js"></script>
 </body>
+
 </html>
