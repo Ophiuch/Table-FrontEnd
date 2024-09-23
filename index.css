@@ -2,12 +2,19 @@
    .container{
     position: relative;
     margin-top: 90px;
-    width: 60%;
+    margin: auto;
+    min-width: 300px;
+    width: 100%;
+    max-width: 90%; /* Ensure the container does not exceed the viewport width */
+    overflow-x: auto; /* Allow horizontal scroll if needed */
    }
    
    
    
    #searchInput{
+    margin-top: calc(-0.2 * 180px);
+        position: relative;
+        padding: 15px;
        margin-left: 2px;
        background-color: #e3ffe4;
        padding-left: 15px;
@@ -15,6 +22,7 @@
        margin-bottom: 5px;
        outline: none; /* Removes the default focus outline */
        border-radius: 0; /* Keeps the border radius consistent */
+       box-sizing: border-box; 
     }
 
     #searchInput::placeholder{
@@ -22,10 +30,11 @@
     }
 
     img{
-        width: 100px;
-        height: 100px;
-        position: absolute;
-        top: 5px;
+        width: 100px; /* Adjust the image size as needed */
+        height: auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
     }
 
     table {
@@ -33,6 +42,7 @@
         border-collapse: collapse; 
         margin-bottom: 20px; 
         font-family: Arial, sans-serif; 
+        table-layout: auto; /* Allow table to resize with content */
     }
 
    
@@ -42,6 +52,7 @@
         padding: 12px 15px; 
         text-align: left; 
         font-size: 16px;
+        word-wrap: break-word; 
     }
 
  
@@ -50,6 +61,7 @@
         border: 1px solid #ddd; 
         text-align: left;
         font-size: 14px;
+        word-wrap: break-word; 
     }
 
     
@@ -72,6 +84,36 @@
         border-radius: 5px;
     }
 
+    #pagination {
+        display: flex;
+  justify-content: center; /* Center the pagination horizontally */
+  align-items: center;     /* Center items vertically if needed */
+    }
+
     button:hover {
         background-color: #45a049; 
+    }
+
+    @media screen and (max-width: 768px) {
+        table {
+            font-size: 14px; /* Adjust the font size for smaller screens */
+        }
+    
+        th, td {
+            padding: 6px; /* Decrease padding to fit content on smaller screens */
+        }
+    
+        .search-input {
+            width: 100%; /* Ensure input takes up the full width */
+            box-sizing: border-box; /* Include padding and border in element's width */
+        }
+    
+        .pagination {
+            text-align: center; /* Center pagination for better alignment on mobile */
+        }
+    
+        /* Hide overflowing text or prevent overlap */
+        table {
+            overflow-x: auto; /* Enable scrolling for wide content on smaller screens */
+        }
     }

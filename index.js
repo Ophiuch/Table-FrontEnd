@@ -35,12 +35,53 @@ function updateTable(athletes) {
 
 function updatePagination(totalRecords, currentPage, pageSize) {
   const pagination = document.getElementById('pagination');
-  pagination.innerHTML = '';
+  pagination.innerHTML = ''; // Clear existing pagination
 
-  const totalPages = Math.ceil(totalRecords / pageSize);
-  for (let i = 1; i <= totalPages; i++) {
-      const pageButton = `<button onclick="fetchAthletes(${i})">${i}</button>`;
-      pagination.innerHTML += pageButton;
+  const totalPages = Math.ceil(totalRecords / pageSize); // Calculate total pages
+
+  // Helper to create a pagination button
+  const createButton = (page, text = page) => {
+    const button = document.createElement('button');
+    button.textContent = text;
+    button.onclick = () => fetchAthletes(page);
+    if (page === currentPage) {
+      button.disabled = true; // Disable the current page button
+      button.style.fontWeight = 'bold'; // Highlight current page
+    }
+    pagination.appendChild(button);
+  };
+
+  // Show first page button
+  if (currentPage > 3) {
+    createButton(1); // Always show first page
+    if (currentPage > 4) {
+      const dots = document.createElement('span');
+      dots.textContent = '...'; // Ellipsis to indicate skipped pages
+      pagination.appendChild(dots);
+    }
+  }
+
+  // Show two pages before the current page
+  for (let i = Math.max(1, currentPage - 2); i < currentPage; i++) {
+    createButton(i);
+  }
+
+  // Show current page
+  createButton(currentPage);
+
+  // Show two pages after the current page
+  for (let i = currentPage + 1; i <= Math.min(totalPages, currentPage + 2); i++) {
+    createButton(i);
+  }
+
+  // Show last page button
+  if (currentPage < totalPages - 2) {
+    if (currentPage < totalPages - 3) {
+      const dots = document.createElement('span');
+      dots.textContent = '...'; // Ellipsis before the last page
+      pagination.appendChild(dots);
+    }
+    createButton(totalPages); // Always show last page
   }
 }
 function sortTable(column) {
