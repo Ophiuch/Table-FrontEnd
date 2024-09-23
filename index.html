@@ -8,9 +8,20 @@
 </head>
 <body>
     <div id="container" class="container"></div>
-    <table id="fifaTable">
-      
+    <table id="athleteTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable('name')">Athlete</th>
+                <th onclick="sortTable('age')">Age</th>
+                <th onclick="sortTable('skill')">Country</th>
+                <th onclick="sortTable('position')">Year</th>
+                <th onclick="sortTable('score')">Sport</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
     </table>
+    <input type="text" id="searchInput" placeholder="-" oninput="searchTable()">
+    <div id="pagination"></div>
     <script src="index.js"></script>
 </body>
 </html>
